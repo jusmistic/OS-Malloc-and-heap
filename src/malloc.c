@@ -5,15 +5,23 @@
 
 int main(){
 	NOP;
-	char text1[200];
+	char text_local[6] = "LOCAL";
 	NOP;
-	char *text_heap;
+	printf("text_local: %s    %p\n",text_local,text_local);
+    NOP;
+    char *text_heap;
     NOP;
     text_heap = (char *)malloc(sizeof(char)*5);
 	NOP;
     strcpy(text_heap,"TEST");
-	printf("Text Heap: %s   %p\n",text_heap,text_heap);
-
+   	NOP;
+    printf("text_heap: %s    %p\n",text_heap,text_heap);
 	NOP;
+    printf("---Reallocation text_heap---\n");
+    NOP;
+    text_heap = (char *)realloc(text_heap,sizeof(char)*12);
+    NOP;
+    strcpy(text_heap,"OS IS EASY.");
+    printf("text_heap: %s    %p\n",text_heap,text_heap);
     return 0;
 }
