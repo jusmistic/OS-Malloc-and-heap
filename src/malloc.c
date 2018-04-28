@@ -24,4 +24,5 @@ int main(){
     strcpy(text_heap,"OS IS EASY.");
     printf("text_heap: %s    %p\n",text_heap,text_heap);
     return 0;
+    free(text_heap);
 }
