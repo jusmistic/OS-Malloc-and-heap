@@ -13,6 +13,34 @@ Heap หรือ dynamic data ตรงนี้เราเอาไว้เ�
 ![Malloc](img/malloc-vs-local.png)<br>
 จากภาพด้านบนจะเห็นว่าเมื่อเราประกาศตัวแปรแบบ Local ไม่ว่าจะประกาศไว้ที่ไหน Compiler ก็จะนำทำหลังจากเข้า function นั้นๆ ทันที
 ต่างจาก malloc ที่ เราจะใช้ค่าตอนไหนก็ค่อยไปเรียก malloc เพื่อจัดการขยาย memory ให้เรา
+
+## จาก malloc_no_nop.c
+``` C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main(){
+    char text_local[6] = "LOCAL";
+    printf("text_local: %s    %p\n",text_local,text_local);
+    char *text_heap;
+    text_heap = (char *)malloc(sizeof(char)*5);
+    strcpy(text_heap,"TEST");
+    printf("text_heap: %s    %p\n",text_heap,text_heap);
+    printf("---Reallocation text_heap---\n");
+    text_heap = (char *)realloc(text_heap,sizeof(char)*12);
+    strcpy(text_heap,"OS IS EASY.");
+    printf("text_heap: %s    %p\n",text_heap,text_heap);
+    return 0;
+    free(text_heap);
+}
+```
+ผลลัพท์ที่ออกมาคือ
+```
+  
+```
+
 ```
 0x804a000  0x806b000    0x21000        0x0 [heap]
 0xbffdf000 0xc0000000    0x21000        0x0 [stack]
