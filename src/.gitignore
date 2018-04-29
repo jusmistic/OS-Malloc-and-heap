@@ -1,3 +1,5 @@
 
 malloc
 malloc_vs_local
+*.exe
+*.out
