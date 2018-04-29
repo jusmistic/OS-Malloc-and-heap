@@ -43,12 +43,13 @@ text_heap: TEST    0x804a410
 ---Reallocation text_heap---
 text_heap: OS IS EASY.    0x804a410
 ```
-
+เราจึงลองรัน gdb แล้ว info proc mapping แล้วแได้ค่าที่น่าสนใจออกมาสองค่า
 ```
 0x804a000  0x806b000    0x21000        0x0 [heap]
 0xbffdf000 0xc0000000    0x21000        0x0 [stack]
 ```
-
+จากผลลัพธ์ด้านบนเราจะเห็นว่า text_local เนี่ยอยู่ที่ 0xbfffeeee ซึ่งอยู่ใน range ของ Stack (0xbffdf000 - 0xc0000000)<br>
+และ text_heap อยู่ที่ 0x804a410 ซึ่งก็อยู่ใน Range ของ Heap (0x804a000 - 0x806b000)
 
 ## ref
 
