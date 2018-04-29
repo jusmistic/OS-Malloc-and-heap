@@ -38,7 +38,10 @@ int main(){
 ```
 ผลลัพท์ที่ออกมาคือ
 ```
-  
+text_local: LOCAL    0xbfffeeee
+text_heap: TEST    0x804a410
+---Reallocation text_heap---
+text_heap: OS IS EASY.    0x804a410
 ```
 
 ```
