@@ -21,7 +21,7 @@ int main(){
 
     if(num % 4 == 0) stack_h =num/4;
     else stack_h = (num/4)+1;
-    printf("--- HEAP START --- \n");
+    printf("\n\n--- HEAP START --- \n");
     for(int i = 0,n =0; i<stack_h;i++){
         strncpy(temp,text+n,4);
         temp[4]='\0';
