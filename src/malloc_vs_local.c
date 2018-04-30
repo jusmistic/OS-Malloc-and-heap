@@ -11,6 +11,8 @@
     char *text_heap;
     NOP;
     text_heap = (char *)malloc(sizeof(char)*11);
+    strcpy(text_heap,"1234567890");
+    printf("%s",text_heap);
     NOP;
     free(text_heap);
     return 1;
